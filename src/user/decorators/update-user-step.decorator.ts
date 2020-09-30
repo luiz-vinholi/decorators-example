@@ -9,9 +9,9 @@ export function UpdateUserStep (): MethodDecorator {
     const descriptior: PropertyDescriptor = callbackArgs[2]
 
     injectUserStepService(target, 'userStepService')
-
     
     const originalMethod = descriptior.value
+    
     descriptior.value = function (...args: any[]) {
       const userId = args[0]
       const response = originalMethod.apply(this, args)
